@@ -3,10 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessReCap.Abstract
+namespace DataAccessReCap.Abstract
 {
-    public interface IProductServiceReCap
+    public interface IColorDal:IEntityRepositoryReCap<Color>
     {
-        List<Car> GetAll();
     }
 }
