@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using Entities.DTOs;
 using Core.Utilities.Results;
+using Business.Constans;
 
 namespace Business.Concrete
 {
@@ -21,13 +22,21 @@ namespace Business.Concrete
 
         public IResult Add(Product product)
         {
+            if (product.ProductName.Length<2)
+            {
+                return new ErrorResult("Ürün ismi min 2 karakter olmalıdır");
+            }
             _productDal.Add(product);
-            return new Result(true,"Ürün Eklendi");
+            return new SuccessResult(Messages.ProductAdded);
         }
 
-        public List<Product> GetAll()
+        public IDataResult<List<Product>> GetAll()
         {
-            return _productDal.GetAll();
+            if ()
+            {
+                return new DataResult;
+            }
+            return new SuccessDataResult(_productDal.GetAll(),true,"ürünler Listelendi");
         }
 
         public List<Product> GetAllByCategoryId(int id)
