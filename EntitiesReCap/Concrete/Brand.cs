@@ -1,4 +1,6 @@
-﻿using EntitiesReCap.Abstract;
+﻿
+
+using CoreReCap.EntitiesReCap;
 using System;
 using System.Collections.Generic;
 using System.Text;

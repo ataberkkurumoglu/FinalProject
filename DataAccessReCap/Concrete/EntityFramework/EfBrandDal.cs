@@ -1,4 +1,5 @@
-﻿using DataAccessReCap.Abstract;
+﻿using CoreRecap.DataAccessRecap.EntityFrameworkRecap;
+using DataAccessReCap.Abstract;
 using EntitiesReCap.Concrete;
 using System;
 using System.Collections.Generic;
@@ -7,31 +8,8 @@ using System.Text;
 
 namespace DataAccessReCap.Concrete.EntityFramework
 {
-    public class EfBrandDal : IBrandDal
+    public class EfBrandDal : EfEntityRepositoryBaseReCap<Brand, NorthwindContextReCap>, IBrandDal
     {
-        public void Add(Brand entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Brand entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Brand Get(Expression<Func<Brand, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Brand> GetAll(Expression<Func<Brand, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Brand entity)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

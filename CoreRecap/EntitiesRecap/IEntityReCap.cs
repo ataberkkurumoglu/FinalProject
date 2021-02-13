@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EntitiesReCap.Abstract
+namespace CoreReCap.EntitiesReCap
 {
     public interface IEntityReCap
     {
