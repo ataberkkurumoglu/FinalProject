@@ -1,4 +1,6 @@
-﻿using BusinessReCap.Abstract;
+﻿using Business.Constans;
+using BusinessReCap.Abstract;
+using CoreReCap.UtilitiesReCap.ResultsReCap;
 using DataAccessReCap.Abstract;
 using EntitiesReCap.Concrete;
 using System;
@@ -16,35 +18,25 @@ namespace BusinessReCap.Concrete
             _carDal = carDal;
         }
 
-        public void AddCar(Car car)
-        {
-            int carLength = car.Description.Length;
-            
-            if (car.DailyPrice > 200 && carLength > 2)
-            {
+        public IResult AddCar(Car car)
+        {                 
                 _carDal.Add(car);
-                Console.WriteLine("Araba eklendi");
-            }
-            else
-            {
-                Console.WriteLine("Araba ekleyemezsiniz");
-            }
-                
+            return new SuccessResult();
         }
 
-        public List<Car> GetAll()
-        {
-            return _carDal.GetAll();
+        public IDataResult<List<Car>>  GetAll()
+        {          
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll());
         }
 
-        public List<Car> GetCarsByBrandId(int id)
+        public IDataResult<List<Car>> GetCarsByBrandId(int id)
         {
-            return _carDal.GetAll(c=>c.BrandId==id);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == id));
         }
 
-        public List<Car> GetCarsByColorId(int id)
+        public IDataResult<List<Car>> GetCarsByColorId(int id)
         {
-            return _carDal.GetAll(c => c.ColorId == id);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
         }
     }
 }

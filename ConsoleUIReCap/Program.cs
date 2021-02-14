@@ -11,7 +11,7 @@ namespace ConsoleUIReCap
         static void Main(string[] args)
         {
             ProductManagerReCap productManagerReCap = new ProductManagerReCap(new EfCarDal());
-            foreach (var product in productManagerReCap.GetAll())
+            foreach (var product in productManagerReCap.GetAll().Data)
             {
                 Console.WriteLine(product.DailyPrice);
                 Console.WriteLine(product.Description);
