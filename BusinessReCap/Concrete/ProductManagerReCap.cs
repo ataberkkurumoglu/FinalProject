@@ -21,7 +21,7 @@ namespace BusinessReCap.Concrete
         public IResult AddCar(Car car)
         {                 
                 _carDal.Add(car);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IDataResult<List<Car>>  GetAll()
