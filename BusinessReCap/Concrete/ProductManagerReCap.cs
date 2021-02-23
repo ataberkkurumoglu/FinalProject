@@ -1,8 +1,11 @@
 ﻿using Business.Constans;
 using BusinessReCap.Abstract;
+using BusinessReCap.ValidationRules.FluentValidation;
+using CoreRecap.CrossCuttingConcerns.Validation;
 using CoreReCap.UtilitiesReCap.ResultsReCap;
 using DataAccessReCap.Abstract;
 using EntitiesReCap.Concrete;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,8 +22,10 @@ namespace BusinessReCap.Concrete
         }
 
         public IResult AddCar(Car car)
-        {                 
-                _carDal.Add(car);
+        {
+            ValidationTool.Validate(new ProductValidator(), car);
+            
+            _carDal.Add(car);
             return new SuccessResult(Messages.ProductAdded);
         }
 
