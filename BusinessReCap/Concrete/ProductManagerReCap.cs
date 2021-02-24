@@ -1,6 +1,7 @@
 ﻿using Business.Constans;
 using BusinessReCap.Abstract;
 using BusinessReCap.ValidationRules.FluentValidation;
+using CoreRecap.AspectsReCap.Autofac.Validation;
 using CoreRecap.CrossCuttingConcerns.Validation;
 using CoreReCap.UtilitiesReCap.ResultsReCap;
 using DataAccessReCap.Abstract;
@@ -21,6 +22,7 @@ namespace BusinessReCap.Concrete
             _carDal = carDal;
         }
 
+        [ValidationAspect(typeof(ProductValidator))]
         public IResult AddCar(Car car)
         {
             ValidationTool.Validate(new ProductValidator(), car);
